@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Objectif>
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="row pt-2">
+    <div>
+        <h1 class="col-6 text-primary">Liste d'objectifs</h1>
+    </div>
+    <form class="d-flex" method="get" asp-controller="Objectifs" asp-action="Index">
+        <input class="form-control me-sm-2" style="width:30%" type="search" placeholder="Chercher" value="@ViewData["salam"]" name="ObjectifSearch">
+        <button class="btn btn-primary btn-sm my-2 my-sm-0" type="submit">Chercher</button>
+        <a href="Index" class="btn btn-primary btn-sm mx-2">Afficher tous les objectifs</a>
+        <a asp-controller="Objectifs" asp-action="Create" class="btn btn-primary btn-sm">Ajouter un objectif</a>
+    </form>
+</div>
+<br />
+<br />
+    <form>
+        <table class="table table-bordered table-striped" style="width:80%">
+            <thead>
+                <tr>
+                    <th class="text-center text-primary">Label</th>
+                    <th class="text-center text-primary">Nom du collaborateur</th>
+                    <th class="text-center text-primary">Note</th>
+                    <th class="text-center text-primary">Remarques</th>
+                    <th class="text-center text-primary">Options</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var obj in Model)
+                {
+                    <tr>
+                        <td class="text-center">@obj.Label_Obj</td>
+                    <td class="text-center">@obj.Nom_Collaborateur</td>
+                        <td class="text-center">@obj.Notation_Globale</td>
+                        <td class="text-center">@obj.Rmq</td>
+                        <td role="group" class="text-center">
+                            <a asp-controller="Objectifs" asp-action="Edit" asp-route-id="@obj.id_Objectif" style="color:black">Modifier</a>
+                            <span class="mx-2"></span>
+                            <a asp-controller="Objectifs" asp-action="Delete" asp-route-id="@obj.id_Objectif" style="color:black">Supprimer</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            
+        </table>
+    </form>
+

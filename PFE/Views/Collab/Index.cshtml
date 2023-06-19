@@ -1,0 +1,132 @@
+﻿@model IEnumerable<Collab>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container p-3">
+    <div class="row pt-3">
+        <div>
+            <h1 class="col-6 text-primary">Liste de collaborateurs</h1>
+        </div>
+        <form class="d-flex" method="get" asp-controller="Collab" asp-action="Index">
+            <input class="form-control me-sm-2" type="search" placeholder="Chercher" value="@ViewData["salam"]" name="Collabsearch">
+            <button class="btn btn-primary btn-sm my-2 my-sm-0" type="submit">Chercher</button>
+            <a href="/Collab/Index" class="btn btn-primary btn-sm mx-2">Afficher tous les collaborateurs</a>
+            <a asp-controller="Collab" asp-action="Create" class="btn btn-primary btn-sm">Créer un collaborateur</a>
+        </form>
+    </div>
+
+    <br /><br />
+    <form id="assignprojetForm" method="post" action="/Collab/AssignProjet">
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th class="text-center text-primary">Matricule</th>
+                    <th class="text-center text-primary">Nom</th>
+                    <th class="text-center text-primary">Prénom</th>
+                    <th class="text-center text-primary">N° Tel</th>
+                    <th class="text-center text-primary">CIN</th>
+                    <th class="text-center text-primary">Adresse mail</th>
+                    <th class="text-center text-primary">Date Entrée SQLI</th>
+                    <th class="text-center text-primary">Date Entrée Travail</th>
+                    <th class="text-center text-primary">Nbr Prjs<br /> Actuels</th>
+                    <th class="text-center text-primary">Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var obj in Model)
+                {
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="selectedCollaborateurs" value="@obj.id_Collab" />
+                        </td>
+                        <td class="text-center text-primary">@obj.Matricule</td>
+                        <td class="text-center text-primary" ">@obj.Nom</td>
+                        <td class="text-center text-primary">@obj.Prenom</td>
+                        <td class="text-center text-primary">@obj.N_Tel</td>
+                        <td class="text-center text-primary">@obj.CIN</td>
+                        <td class="text-center text-primary" ">@obj.Adresse</td>
+                        <td class="text-center text-primary">@obj.Anciennete_SQLI.ToString("yyyy-MM-dd")</td>
+                        <td class="text-center text-primary">@obj.Anciennete_Travail.ToString("yyyy-MM-dd")</td>
+                        <td class="text-center text-primary">@obj.Nbr_Prj_act</td>
+                        <td role="group" class="text-center">
+                            <a asp-controller="Collab" asp-action="Edit" asp-route-id="@obj.id_Collab" style="color:blue">Modifier</a>
+                            <span class="mx-2"></span>
+                            <a asp-controller="Collab" asp-action="Delete" asp-route-id="@obj.id_Collab" style="color:blue">Supprimer</a>
+                            <span class="mx-2"></span>
+                            <a asp-controller="Objectifs" asp-action="Index" asp-route-id="@obj.id_Collab" style="color:blue">Objectifs</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <button type="button" class="btn btn-primary" id="assignBtn">Affecter à un projet</button>
+
+    </form>
+</div>
+<div class="modal" id="ProjetModal" tabindex="-1" aria-labelledby="ProjetModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ProjetModalLabel">Sélectionner un projet</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="projetDropdown">Projet:</label>
+                    <select id="projetDropdown" name="projetName" class="form-control">
+                        <option value="">Sélectionner un projet</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                <button type="button" class="btn btn-primary" id="assignProjetsBtn">Affecter à un projet</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#assignBtn").click(function () {
+            var selectedCollaborateurs = [];
+            $("input[name='selectedCollaborateurs']:checked").each(function () {
+                selectedCollaborateurs.push($(this).val());
+            });
+
+            if (selectedCollaborateurs.length > 0) {
+                $.get("/Collab/GetProjetNames", function (data) {
+                    var options = '';
+                    $.each(data, function (index, projetName) {
+                        options += '<option value="' + projetName + '">' + projetName + '</option>';
+                    });
+
+                    $('#projetDropdown').html(options);
+                    $('#ProjetModal').modal('show');
+                });
+            } else {
+                alert("Veuillez sélectionner au moins un collaborateur");
+            }
+        });
+
+        $("#assignProjetsBtn").click(function () {
+            var projetName = $('#projetDropdown').val();
+
+            if (projetName !== "") {
+                var hiddenInput = $('<input>')
+                    .attr('type', 'hidden')
+                    .attr('name', 'projetName')
+                    .val(projetName);
+                $('#assignprojetForm').append(hiddenInput);
+
+                $('#assignprojetForm').submit();
+            } else {
+                alert('Veuillez sélectionner un projet');
+            }
+        });
+    });
+</script>

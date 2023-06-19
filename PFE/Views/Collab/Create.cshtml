@@ -1,0 +1,92 @@
+﻿@model Collab
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Créer un collaborateur</h2>
+        </div>
+        <table width="450px">
+        <tr class="mb-3">
+                <th><label asp-for="Nom"></label></th>
+                <td><input asp-for="Nom" /><br/>
+                <span asp-validation-for="Nom" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr class="mb-3">
+                <th><label asp-for="Prenom">Prénom</label></th>
+                <td>
+                    <input asp-for="Prenom" /><br />
+            <span asp-validation-for="Prenom" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr class="mb-3">
+                <th><label asp-for="Matricule"></label></th>
+                <td>
+                    <input asp-for="Matricule" /><br />
+                    <span asp-validation-for="Matricule" class="text-danger"></span>
+                </td>
+
+        </tr>
+        <tr class="mb-3">
+                <th><label asp-for="N_Tel">N° tél</label></th>
+                <td>
+                    <input asp-for="N_Tel" placeholder="Format +212 invalide" /><br />
+                    <span asp-validation-for="N_Tel" class="text-danger"></span>
+                </td>
+
+        </tr>
+        <tr class="mb-3">
+                <th><label asp-for="CIN"></label></th>
+                <td>
+                    <input asp-for="CIN" /><br />
+                    <span asp-validation-for="CIN" class="text-danger"></span>
+                </td>
+
+        </tr>
+        <tr class="mb-3">
+                <th><label asp-for="Adresse">Adresse mail</label></th>
+                <td>
+                    <input asp-for="Adresse" /><br />
+                    <span asp-validation-for="Adresse" class="text-danger"></span>
+                </td>
+
+        </tr>
+        <tr class="mb-3">
+                <th><label asp-for="Anciennete_SQLI">Date Entrée SQLI</label></th>
+                <td>
+                    <input type="date" max="@DateTime.Now.ToString("yyyy-MM-dd")" asp-for="Anciennete_SQLI" style="width: 190px;" /><br />
+                    <span asp-validation-for="Anciennete_SQLI" class="text-danger"></span>
+                </td>
+
+        </tr>
+            <tr class="mb-3">
+                <th><label asp-for="Anciennete_Travail">Date Entrée Travail</label></th>
+                <td>
+                    <input type="date" max="@DateTime.Now.ToString("yyyy-MM-dd")" asp-for="Anciennete_Travail" style="width: 190px;" /><br />
+                    <span asp-validation-for="Anciennete_Travail" class="text-danger"></span>
+                </td>
+
+            </tr>
+
+        <tr class="mb-3">
+                <th><label asp-for="Nbr_Prj_act">Nombre Projets Actuels</label></th>
+                <td>
+                    <input asp-for="Nbr_Prj_act" /><br />
+                    <span asp-validation-for="Nbr_Prj_act" class="text-danger"></span>
+                </td>
+
+            </tr>
+        </table>
+        <button type="submit" class="btn btn-primary border mt-4" style="width:150px">Valider</button>
+        <a asp-controller="Collab" asp-action="Index" class="btn btn-secondary mt-4" style="width:150px">Page précédente</a>
+    </div>
+</form>
+
+
+@*Pour que la page s'actualise à chaque fois que je recharge la page sans reload(chargement)*@
+@section Scripts
+{
+    @{<partial name="_ValidationScriptsPartial" />}
+}
+
+

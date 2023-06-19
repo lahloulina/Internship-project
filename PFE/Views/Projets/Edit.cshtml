@@ -1,0 +1,41 @@
+﻿@model Projet
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h4>Projet</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method ="post" asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Nom_Projet" class="control-label"></label>
+                <input asp-for="Nom_Projet" class="form-control" />
+                <span asp-validation-for="Nom_Projet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Membre_Equipe" class="control-label"></label>
+                <input asp-for="Membre_Equipe" class="form-control" />
+                <span asp-validation-for="Membre_Equipe" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date_Debut" class="control-label"></label>
+                <input type="date" max="@DateTime.Now.ToString("yyyy-MM-dd")" asp-for="Date_Debut" class="form-control" />
+                <span asp-validation-for="Date_Debut" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary border mt-4" style="width:150px">Mettre à jour</button>
+                <a asp-controller="Collab" asp-action="Index" class="btn btn-secondary mt-4" style="width:150px">Page précédente</a>
+            </div>
+        </form>
+    </div>
+</div>
+

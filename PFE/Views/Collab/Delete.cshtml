@@ -1,0 +1,83 @@
+﻿@model Collab
+
+<h3 class="text-primary">Êtes-vous sûr de vouloir supprimer ce collaborateur ?</h3>
+
+<form method="post" asp-action="Delete">
+    <input asp-for="id_Collab" hidden />
+    <div class="border p-3 mt-4">
+        <table width="450px">
+        <tr class="mb-3">
+                <th><label asp-for="Nom"></label></th>
+                <td>
+                    <input asp-for="Nom" disabled style="background: transparent; border: none;" /><br />
+            </td>
+        </tr>
+        <tr class="mb-3">
+                <th><label asp-for="Prenom">Prénom</label></th>
+                <td>
+                    <input asp-for="Prenom" disabled style="background: transparent; border: none;" /><br />
+            </td>
+        </tr>
+        <tr class="mb-3">
+                <th><label asp-for="Matricule"></label></th>
+                <td>
+                    <input asp-for="Matricule" disabled style="background: transparent; border: none;" /><br />
+                </td>
+
+        </tr>
+        <tr class="mb-3">
+                <th><label asp-for="N_Tel">N° tél</label></th>
+                <td>
+                    <input asp-for="N_Tel" disabled style="background: transparent; border: none;" /><br />
+                </td>
+
+        </tr>
+        <tr class="mb-3">
+                <th><label asp-for="CIN"></label></th>
+                <td>
+                    <input asp-for="CIN" disabled style="background: transparent; border: none;" /><br />
+                </td>
+
+        </tr>
+        <tr class="mb-3">
+                <th><label asp-for="Adresse"></label></th>
+                <td>
+                    <input asp-for="Adresse" disabled style="background: transparent; border: none;" /><br />
+                </td>
+
+        </tr>
+        <tr class="mb-3">
+                <th><label asp-for="Anciennete_SQLI">Date Entrée SQLI</label></th>
+                <td>
+                    <input type="date" max="@DateTime.Now.ToString("yyyy-MM-dd")" asp-for="Anciennete_SQLI" disabled style="width: 190px; background: transparent; border: none;" /><br />
+                </td>
+
+        </tr>
+            <tr class="mb-3">
+                <th><label asp-for="Anciennete_Travail">Date Entrée Travail</label></th>
+                <td>
+                    <input type="date" max="@DateTime.Now.ToString("yyyy-MM-dd")" asp-for="Anciennete_Travail" disabled style="width: 190px; background: transparent; border: none;" /><br />
+                </td>
+
+            </tr>
+
+        <tr class="mb-3">
+                <th><label asp-for="Nbr_Prj_act">Nombre Projets Actuels</label></th>
+                <td>
+                    <input asp-for="Nbr_Prj_act" disabled style="background: transparent; border: none;" /><br />
+                </td>
+
+            </tr>
+        </table>
+        <button type="submit" class="btn btn-danger border mt-4" style="width:150px; ">Supprimer un collaborateur</button>
+        <a asp-controller="Collab" asp-action="Index" class="btn btn-secondary mt-4" style="width:150px; line-height: 50px;">Page précédente</a>
+    </div>
+</form>
+
+@*Pour que la page ne se charge pas à chaque fois qu'il y a une erreur*@
+@section Scripts
+{
+    @{<partial name="_ValidationScriptsPartial" />}
+}
+
+

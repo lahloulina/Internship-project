@@ -1,0 +1,50 @@
+﻿@model Projet
+
+<h3 class="text-primary">Êtes-vous sûr de vouloir supprimer ce projet ?</h3>
+
+<form method="post" asp-action="Delete">
+    <input asp-for="Id" hidden />
+    <div class="border p-3 mt-4">
+        <table width="450px">
+            <tr class="mb-3">
+                <th><label asp-for="Nom_Projet">Nom du projet</label></th>
+                <td>
+                    <input asp-for="Nom_Projet" disabled style="background: transparent; border: none;" /><br />
+                </td>
+            </tr>
+            <tr class="mb-3">
+                <th><label asp-for="Description"></label></th>
+                <td>
+                    <input asp-for="Description" disabled style="background: transparent; border: none;" /><br />
+                </td>
+
+            </tr>
+            <tr class="mb-3">
+                <th><label asp-for="Membre_Equipe">Membres d'équipe</label></th>
+                <td>
+                    <input asp-for="Membre_Equipe" disabled style="background: transparent; border: none;" /><br />
+                </td>
+
+            </tr>
+            <tr class="mb-3">
+                <th><label asp-for="Date_Debut">Date de début du projet</label></th>
+                <td>
+                    <input type="date" max="@DateTime.Now.ToString("yyyy-MM-dd")" asp-for="Date_Debut" disabled style="width: 190px; background: transparent; border: none;" /><br />
+                </td>
+
+            </tr>
+        </table>
+        <button type="submit" class="btn btn-danger border mt-4" style="width:150px; ">Supprimer un projet</button>
+        <a asp-controller="Collab" asp-action="Index" class="btn btn-secondary mt-4" style="width:150px; line-height: 50px;">Page précédente</a>
+    </div>
+</form>
+
+@*Pour que la page ne se charge pas à chaque fois qu'il y a une erreur*@
+@section Scripts
+    {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+
+

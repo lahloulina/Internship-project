@@ -1,0 +1,60 @@
+﻿@model Objectif
+
+<form method="post">
+    <table>
+        <div class="row pb-2">
+            <h2 class="text-primary">Ajouter un objectif</h2>
+        </div>
+        <tr>
+            <th><label asp-for="Label_Obj">Label</label></th>
+            <td>
+                <input asp-for="Label_Obj" /><br />
+                <span asp-validation-for="Label_Obj" class="text-danger"></span>
+            </td>
+            <tr/>
+        <tr>
+            <th><label asp-for="Description">Description</label></th>
+            <td>
+                <input type="text-area" asp-for="Description" /><br />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <th><label asp-for="Nom_Collaborateur">Nom du collaborateur</label></th>
+            <td>
+                <input type="text-area" asp-for="Nom_Collaborateur" /><br />
+                <span asp-validation-for="Nom_Collaborateur" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <th><label asp-for="Date_Debut">Date de début</label></th>
+            <td>
+                <input type="date" max="@DateTime.Now.ToString("yyyy-MM-dd")" asp-for="Date_Debut" /><br />
+                <span asp-validation-for="Date_Debut" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <th><label asp-for="Date_fin">Date de fin</label></th>
+            <td>
+                <input type="date" max="@DateTime.Now.ToString("yyyy-MM-dd")" asp-for="Date_fin" /><br />
+                <span asp-validation-for="Date_fin" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <th><label asp-for="Notation_Globale">Note générale</label></th>
+            <td>
+                <input asp-for="Notation_Globale" /><br />
+                <span asp-validation-for="Notation_Globale" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <th><label asp-for="Rmq">Remarques</label></th>
+            <td>
+                <input asp-for="Rmq" /><br />
+                <span asp-validation-for="Rmq" class="text-danger"></span>
+            </td>
+        </tr>
+    </table>
+    <button type="submit" class="btn btn-primary border mt-4" style="width:150px">Valider</button>
+    <a asp-controller="Objectifs" asp-action="Index" class="btn btn-secondary mt-4" style="width:150px">Page précédente</a>
+</form>

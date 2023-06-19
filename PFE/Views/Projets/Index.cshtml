@@ -1,0 +1,105 @@
+﻿@model IEnumerable<Projet>
+@{
+    ViewData["Title"] = "Index";
+}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div class="container p-3">
+    <div class="row pt-3">
+        <br />
+        <h1 class="col-6 text-primary">Liste de projets (@Model.Count())</h1>
+        <div class="text-end">
+        </div>
+        <br />
+    <br/>
+        <div class="card">
+
+            <div class="container-flex ml-5  justify-content-start">
+                <nav class="nav nav-tabs ">
+                    <button type="button" class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-Projet">Projets</button>
+                    <button type="button" class="nav-link" onclick="redirectToAnotherPage()">Affectations</button>
+                </nav>
+            </div>
+            <div class="tab-content ">
+                <div class="tab-pane active show fade" id="tab-Projet">
+                    <div>
+        </div>
+        <form class="d-flex" method="get" asp-controller="Projets" asp-action="Index">
+            <input class="form-control me-sm-2" type="search" placeholder="Chercher" value="@ViewData["salam"]" name="ProjetSearch">
+            <button class="btn btn-primary btn-sm my-2 my-sm-0" type="submit">Chercher</button>
+            <a href="Index" class="btn btn-primary btn-sm mx-2">Afficher tous les projets</a>
+                        <a asp-controller="Projets" asp-action="Create" class="btn btn-primary btn-sm">Ajouter un projet</a>
+        </form>
+    </div>
+
+
+    <br /><br />
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th class="text-center text-primary">Nom du projet</th>
+                <th class="text-center text-primary">Description</th>
+                <th class="text-center text-primary">Membres d'équipe du projet</th>
+                <th class="text-center text-primary">Date de début du projet</th>
+                <th class="text-center text-primary">Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model)
+            {
+                <tr>
+                    <td class="text-center">@obj.Nom_Projet</td>
+                    <td class="text-center">@obj.Description</td>
+                    <td class="text-center">@obj.Membre_Equipe</td>
+                    <td class="text-center">@obj.Date_Debut.ToString("yyyy-MM-dd")</td>
+                    <td role="group" class="text-center">
+                        <a asp-controller="Projets" asp-action="Edit" asp-route-id="@obj.Id" style="color:black">Modifier</a>
+                        <span class="mx-2"></span>
+                        <a asp-controller="Projets" asp-action="Delete" asp-route-id="@obj.Id" style="color:black">Supprimer</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+</div>
+        <script>
+            function redirectToAnotherPage() {
+                var url = '@Url.Action("page1", "Projets")';
+                window.location.href = url;
+            }
+        </script>
+
+
+
+        @*<canvas id="progressChart" width="200" height="100"></canvas>
+        <script>
+            var canvas = document.getElementById('progressChart');
+            var ctx = canvas.getContext('2d');
+
+            var numberOfProjects = @Model.Count();
+
+            var progressChart = new Chart(ctx, {
+                type: 'line', // Utilisez un graphique en courbe pour représenter le progrès
+                data: {
+                    labels: ['Progrès de l\'entreprise'], // Étiquette de l'axe des x
+                    datasets: [{
+                        label: 'Nombre de projets', // Étiquette de la série de données
+                        data: [numberOfProjects], // Données (nombre de projets)
+                        fill: false, // Pas de remplissage pour la courbe
+                        borderColor: 'rgba(54, 162, 235, 1)', // Couleur de la courbe
+                        borderWidth: 1 // Épaisseur de la courbe
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true // Démarre l'axe des y à zéro
+                        }
+                    }
+                }
+            });
+        </script>
+*@
+        </div>

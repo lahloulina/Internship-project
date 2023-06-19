@@ -1,0 +1,73 @@
+﻿@model PFE.Models.Collab
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h4>Collaborateur</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id_Collab" />
+            <div class="form-group">
+                <label asp-for="Nom" class="control-label" style="color:blue"></label>
+                <input asp-for="Nom" class="form-control" />
+                <span asp-validation-for="Nom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Prenom" class="control-label" style="color:blue">Prénom</label>
+                <input asp-for="Prenom" class="form-control" />
+                <span asp-validation-for="Prenom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Matricule" class="control-label" style="color:blue"></label>
+                <input asp-for="Matricule" class="form-control" />
+                <span asp-validation-for="Matricule" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="N_Tel" class="control-label" style="color:blue">N° de téléphone</label>
+                <input asp-for="N_Tel" class="form-control" />
+                <span asp-validation-for="N_Tel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CIN" class="control-label" style="color:blue"></label>
+                <input asp-for="CIN" class="form-control" />
+                <span asp-validation-for="CIN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Adresse" class="control-label" style="color:blue">Adresse mail</label>
+                <input asp-for="Adresse" class="form-control" />
+                <span asp-validation-for="Adresse" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Anciennete_SQLI" class="control-label" style="color:blue">Date d'entrée à SQLI</label>
+                <input type="date" max="@DateTime.Now.ToString("yyyy-MM-dd")" asp-for="Anciennete_SQLI" class="form-control" />
+                <span asp-validation-for="Anciennete_SQLI" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Anciennete_Travail" class="control-label" style="color:blue">Date de début du travail</label>
+                <input type="date" max="@DateTime.Now.ToString("yyyy-MM-dd")" asp-for="Anciennete_Travail" class="form-control" />
+                <span asp-validation-for="Anciennete_Travail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nbr_Prj_act" class="control-label" style="color:blue">Nombre Projets Actuels</label>
+                <input asp-for="Nbr_Prj_act" class="form-control" /><br />
+                <span asp-validation-for="Nbr_Prj_act" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary border mt-4" style="width:150px">Mettre à jour</button>
+                <a asp-controller="Collab" asp-action="Index" class="btn btn-secondary mt-4" style="width:150px">Page précédente</a>
+            </div>
+            
+        </form>
+    </div>
+</div>
+@*Pour que la page ne se charge pas à chaque fois qu'il y a une erreur*@
+@section Scripts
+    {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

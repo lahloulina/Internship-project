@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="fr-fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] SQLI</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Project.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+
+    <style>
+        .navbar-nav .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Dark mode styles */
+        .theme-dark {
+            background-color: #222;
+            color: #fff;
+        }
+
+            .theme-dark .navbar {
+                background-color: #333;
+            }
+
+        /* Light mode styles */
+        .theme-light {
+            background-color: #fff;
+            color: #333;
+        }
+
+            .theme-light .navbar {
+                background-color: #f8f9fa;
+            }
+
+        /* Input styles */
+        .theme-dark input[type="text"],
+        .theme-dark input[type="email"],
+        .theme-dark input[type="password"] {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .theme-light input[type="text"],
+        .theme-light input[type="email"],
+        .theme-light input[type="password"] {
+            background-color: #f8f9fa;
+            color: #333;
+        }
+    </style>
+
+</head>
+<body class="theme-light">
+    <header class="theme-light">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarColor02">
+                    <ul class="navbar-nav">
+                        <li class="nav-item me-auto">
+                            <a class="nav-link" asp-controller="Home" asp-action="Index">
+                                Home
+                                <span class="visually-hidden">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Collab" asp-action="Index">Collaborateurs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Projets" asp-action="Index">Projets</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Objectifs" asp-action="Index">Objectifs</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ms-auto">
+                        <button id="darkModeButton" class="btn btn-dark"><i class="bi bi-moon"></i></button>
+                        <button id="lightModeButton" class="btn btn-light"><i class="bi bi-sun"></i></button>
+
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Users" asp-action="Login"><i class="bi bi-box-arrow-left"></i> Déconnexion</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - PFE 
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        // JavaScript for toggling dark and light mode
+        function setThemeMode(theme) {
+            document.body.classList.remove('theme-light');
+            document.body.classList.remove('theme-dark');
+            document.body.classList.add(`theme-${theme}`);
+            document.cookie = `theme=${theme}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+        }
+
+        function getCookie(name) {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.startsWith(name + '=')) {
+                    return cookie.substring(name.length + 1);
+                }
+            }
+            return null;
+        }
+
+        const savedTheme = getCookie('theme');
+        if (savedTheme) {
+            setThemeMode(savedTheme);
+        }
+
+        document.getElementById('darkModeButton').addEventListener('click', function () {
+            setThemeMode('dark');
+        });
+
+        document.getElementById('lightModeButton').addEventListener('click', function () {
+            setThemeMode('light');
+        });
+    </script>
+
+
+    <script>
+    function adjustPageHeight() {
+    const body = document.body;
+    const html = document.documentElement;
+    const windowHeight = window.innerHeight;
+    const pageHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+    const mainElement = document.querySelector('main');
+    const footerElement = document.querySelector('footer');
+    const mainHeight = mainElement.offsetHeight + footerElement.offsetHeight;
+
+    if (mainHeight < windowHeight) {
+    mainElement.style.minHeight = (windowHeight - footerElement.offsetHeight) + 'px';
+    }
+    }
+    window.addEventListener('DOMContentLoaded', adjustPageHeight);
+    window.addEventListener('resize', adjustPageHeight);
+    </script>
+</body>
+</html>
+
+@RenderSection("Scripts", required: false)

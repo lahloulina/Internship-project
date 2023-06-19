@@ -1,0 +1,59 @@
+﻿@model Objectif
+
+<h3 class="text-primary">Êtes-vous sûr de vouloir supprimer cet objectif ?</h3>
+
+<form method="post" asp-action="Delete">
+    <input asp-for="id_Objectif" hidden />
+    <div class="border p-3 mt-4">
+        <table width="450px">
+            <tr class="mb-3">
+                <th><label asp-for="Label_Obj"></label></th>
+                <td>
+                    <input asp-for="Label_Obj" disabled style="background: transparent; border: none;" /><br />
+                </td>
+            </tr>
+            <tr class="mb-3">
+                <th><label asp-for="Description"></label></th>
+                <td>
+                    <input asp-for="Description" disabled style="background: transparent; border: none;" /><br />
+                </td>
+            </tr>
+            <tr class="mb-3">
+                <th><label asp-for="Nom_Collaborateur"></label></th>
+                <td>
+                    <input asp-for="Nom_Collaborateur" disabled style="background: transparent; border: none;" /><br />
+                </td>
+
+            </tr>
+            <tr class="mb-3">
+                <th><label asp-for="Notation_Globale"></label></th>
+                <td>
+                    <input asp-for="Notation_Globale" disabled style="background: transparent; border: none;" /><br />
+                </td>
+            </tr>
+            <tr class="mb-3">
+                <th><label asp-for="Rmq">Remarques</label></th>
+                <td>
+                    <input asp-for="Rmq" disabled style="width: 190px; background: transparent; border: none;" /><br />
+                </td>
+
+            </tr>
+        </table>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-danger border mt-4" style="width:150px; ">Supprimer un objectif</button>
+            <a asp-controller="Objectifs" asp-action="Index" class="btn btn-secondary mt-4" style="width:150px; line-height: 50px;">Page précédente</a>
+        </div>
+
+    </div>
+</form>
+
+@*Pour que la page ne se charge pas à chaque fois qu'il y a une erreur*@
+@section Scripts
+    {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+
+

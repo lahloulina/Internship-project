@@ -1,0 +1,51 @@
+﻿@model Projet
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Ajouter un projet</h2>
+        </div>
+        <table width="450px">
+            <tr class="mb-3">
+                <th><label asp-for="Nom_Projet">Nom du projet</label></th>
+                <td>
+                    <input asp-for="Nom_Projet" /><br />
+                    <span asp-validation-for="Nom_Projet" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr class="mb-3">
+                <th><label asp-for="Description">Description</label></th>
+                <td>
+                    <input asp-for="Description" /><br />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr class="mb-3">
+                <th><label asp-for="Membre_Equipe">Membres d'équipe</label></th>
+                <td>
+                    <input asp-for="Membre_Equipe"><br />
+                    <span asp-validation-for="Membre_Equipe" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr class="mb-3">
+                <th><label asp-for="Date_Debut">Date de début du projet</label></th>
+                <td>
+                    <input type="date" max="@DateTime.Now.ToString("yyyy-MM-dd")" asp-for="Date_Debut" /><br />
+                    <span asp-validation-for="Date_Debut" class="text-danger"></span>
+                </td>
+            </tr>
+        </table>
+        <button type="submit" class="btn btn-primary border mt-4" style="width:150px">Valider</button>
+        <a asp-controller="Projets" asp-action="Index" class="btn btn-secondary mt-4">Page précédente</a>
+    </div>
+</form>
+
+@*Pour que la page s'actualise à chaque fois que je recharge la page sans reload(chargement)
+*@
+@section Scripts
+    {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+

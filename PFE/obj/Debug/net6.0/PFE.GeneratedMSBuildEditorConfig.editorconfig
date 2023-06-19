@@ -1,0 +1,109 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = PFE
+build_property.RootNamespace = PFE
+build_property.ProjectDir = C:\Users\SQLI\Desktop\PFE\PFE\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
+build_property.MSBuildProjectDirectory = C:\Users\SQLI\Desktop\PFE\PFE
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/SQLI/Desktop/PFE/PFE/Views/Collab/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sbGFiXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SQLI/Desktop/PFE/PFE/Views/Collab/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sbGFiXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SQLI/Desktop/PFE/PFE/Views/Collab/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sbGFiXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SQLI/Desktop/PFE/PFE/Views/Collab/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29sbGFiXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SQLI/Desktop/PFE/PFE/Views/Home/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SQLI/Desktop/PFE/PFE/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SQLI/Desktop/PFE/PFE/Views/Objectifs/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2JqZWN0aWZzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SQLI/Desktop/PFE/PFE/Views/Objectifs/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2JqZWN0aWZzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SQLI/Desktop/PFE/PFE/Views/Objectifs/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2JqZWN0aWZzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SQLI/Desktop/PFE/PFE/Views/Objectifs/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2JqZWN0aWZzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SQLI/Desktop/PFE/PFE/Views/Projets/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamV0c1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SQLI/Desktop/PFE/PFE/Views/Projets/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamV0c1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SQLI/Desktop/PFE/PFE/Views/Projets/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamV0c1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SQLI/Desktop/PFE/PFE/Views/Projets/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamV0c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SQLI/Desktop/PFE/PFE/Views/Projets/page1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamV0c1xwYWdlMS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SQLI/Desktop/PFE/PFE/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SQLI/Desktop/PFE/PFE/Views/Shared/_LayoutUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRVc2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SQLI/Desktop/PFE/PFE/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SQLI/Desktop/PFE/PFE/Views/Users/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SQLI/Desktop/PFE/PFE/Views/Users/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcUmVnaXN0ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SQLI/Desktop/PFE/PFE/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SQLI/Desktop/PFE/PFE/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SQLI/Desktop/PFE/PFE/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-btoib50c70

@@ -1,0 +1,90 @@
+﻿@*@model PFE.Models.User
+@{
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+<section class="vh-100">
+    <div class="px-4 py-5 px-md-5 text-center text-lg-start d-flex align-items-center justify-content-center">
+        <div class="row gx-lg-5 align-items-center">
+            <div class="col-md-9 col-lg-6 col-xl-5">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                     class="img-fluid" alt="Sample image">
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                <div class="card">
+                    <div class="card-body">
+                        @using (Html.BeginForm("Register", "Users", FormMethod.Post))
+                        {
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Nom)
+                                @Html.TextBoxFor(model => model.Nom, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Nom)
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Email)
+                                @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Email)
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Password)
+                                @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Password)
+                            </div>
+
+                            <button type="submit" class="btn btn-primary my-3">Je m'inscris</button>
+
+                            <p>J'ai déjà un compte. <a asp-controller="Users" asp-action="Login">Je me connecte</a></p>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+*@
+
+@model PFE.Models.User
+@{
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+<section class="">
+    <div class="px-4 py-5 px-md-5 text-center text-lg-start d-flex align-items-center justify-content-center" style="min-height: 80vh;">
+        <div class="row gx-lg-5 align-items-center">
+            <div class="col-md-9 col-lg-6 col-xl-5">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                     class="img-fluid" alt="Sample image">
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                <div class="card">
+                    <div class="card-body">
+                        @using (Html.BeginForm("Register", "Users", FormMethod.Post))
+                        {
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Nom)
+                                @Html.TextBoxFor(model => model.Nom, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Nom)
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Email)
+                                @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Email)
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Password, "Mot de passe")
+                                @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Password)
+                            </div>
+
+                            <button type="submit" class="btn btn-primary my-3">Je m'inscris</button>
+
+                            <p>J'ai un compte. <a asp-controller="Users" asp-action="Login">Je me connecte</a></p>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
